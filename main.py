@@ -2,9 +2,10 @@ with open('recept.txt', encoding='utf-8') as file:
     # res = file.readlines()
     # print(res)
     cook_book = {}
+
     for line in file:
-        file.seek(0)
-        dish = file.readline().strip()
+        # file.seek(0)
+        dish = line.strip()
         quantity_ingredients = int(file.readline())
         # print(dish)
         ingredients = []
@@ -17,7 +18,10 @@ with open('recept.txt', encoding='utf-8') as file:
                 'measure': measure
             })
         cook_book[dish] = ingredients
+        file.readline()
+print(cook_book)
 
-    print(cook_book)
+def get_shop_list_by_dishes(dishes, person_count):
+    
 
 
