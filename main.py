@@ -19,9 +19,21 @@ with open('recept.txt', encoding='utf-8') as file:
             })
         cook_book[dish] = ingredients
         file.readline()
-print(cook_book)
+# print(cook_book)
+
+ing = {}
+
 
 def get_shop_list_by_dishes(dishes, person_count):
-    
+    for dish in dishes:
+        for i in cook_book.get(dish):
+            a = i['ingredient_name']
+            b = {
+                'quantity': int(i['quantity']) * person_count,
+                'measure': i['measure']
+            }
+            ing[a] = b
+    print(ing)
 
 
+get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
